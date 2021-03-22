@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)file:///C:/Users/diego/OneDrive/%C3%81rea%20de%20Trabalho/WEB/javascript/pratica.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Javascript</title>
+	<!-- A Diferença de colocar a tag do js
+	no head ou no body é que se eu colocar no head as instruções seram carregadas antes do processamento do body !-->
+	
+
+	
+	<script type="text/javascript">
+	
+	function calculaMedia(p1, p2, faltas, media) {
+
+		var media = (p1 * p2) / faltas
+
+		return media
+
+	}
+	var nome = prompt('Digite o seu nome')
+	var p1 = prompt('Digite a primeira nota')
+	var p2 = prompt('Digite a segunda nota')
+	var faltas = prompt('Digite as faltas')
+
+
+	//document.write(calculaMedia(p1, p2, faltas))
+
+	var media = calculaMedia(p1, p2, faltas)
+
+	function mostraResultado() {
+		if(media > 7) {
+			document.write(nome + 'Passou')
+		} else{
+			document.write(nome + 'Não passou')
+		}
+		return mostraResultado
+	}
+
+	mostraResultado()
+
+
+
+
+	</script></head><body>diegoPassou
+
+
+
+	
+
+	
+
+</body></html>
