@@ -19,6 +19,9 @@
     <!-- Estilo customizado -->
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
 
+    <!-- Javascript !-->
+    <script type="text/javascript" src="javascript/funcoes.js"></script>
+
     <title>Música para todos - Spotify</title>
     <!-- Determinando o icone que ficara acima  -->
     <link rel="icon" href="imagens/favicon.png">
@@ -33,6 +36,8 @@
            consigo ter essa imagem em qualquer tamanho-->
                 <img src="imagens/spotify.svg" width="142">
             </a>
+            <br> 
+          
             <!-- Configurando o menu hamburguer !-->
             <!-- O botão ira abrir a div que tem o id nav-principal !-->
             <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
@@ -46,7 +51,6 @@
                  <a class="btn btn-outline-success" href="spotify-8-6-10-193.apk" dowload="spotify.apk" class="nav-link">Baixar
                   <i class="fas fa-download"></i>
                  </a>
-
                 </li>
                 <!-- Botão para acionar o modal -->
 
@@ -59,7 +63,7 @@
 
                 <li class="nav-item divisor"></li>
                 <li class="nav-item">
-                  <a href="cadastrar-se.html" class="nav-link">Cadastrar-se</a>
+                  <a href="cadastrar-se.html" class="nav-link">Cadastrar</a>
                 </li>
                 <li class="nav-item">
                   <a href="index.html" class="nav-link">Ajuda</a>
@@ -67,11 +71,15 @@
                 <li class="nav-item">
                   <a href="premium.html" class="nav-link">Premium</a>
                 </li>
+                <br>
+                <div>
+                  
+                <li class="nav-item" id="usuario_menu_login" hidden="hidden" title="SAIR">
+                    <a class="nav-link" id="a1" title="SAIR"> 
+                  </a>
+                </li>
                 
               </ul>
-
-             
-
 
         </div>
       </nav>
@@ -130,8 +138,8 @@
              <div style="margin-bottom: 60px;">
                 <h2 align="center"> Escolha um plano</h2>
              </div>
-<div class="hover-table-layout">
-    <div class="listing-item">
+<div class="hover-table-layout" >
+    <div class="listing-item" id="div-individual"onclick="divPlanos()" >
         <figure class="image">
             <img src="imagens/giphy.gif" class="img-fluid  d-md-block">
             <figcaption>
@@ -154,7 +162,7 @@
         </p>
     </div>
 
-    <div class="listing-item">
+    <div class="listing-item" onclick="divPlanos()">
         <figure class="image">
            <img src="imagens/giphy.gif" class="img-fluid  d-md-block">
             <figcaption>
@@ -177,7 +185,7 @@
           O mês grátis não está disponível para usuários que já experimentaram o Premium.
         </p>
     </div>
-    <div class="listing-item">
+    <div class="listing-item" onclick="divPlanos()">
         <figure class="image">
             <img src="imagens/giphy.gif" class="img-fluid  d-md-block">
             <figcaption>
@@ -218,14 +226,14 @@
               <h2>Descobrir</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar ullamcorper sapien a fermentum.</p>
           </div>
-            <div class="col-md-8">
+            <div class="col-md-8 arruma-smartphone">
               <!-- Irei rotacionar a row toda !-->
               <div class="row rotacionar">
                 <div class="col-md-6">
-                  <img src="imagens/iphone1.png" class="img-fluid d-none d-md-block">
+                  <img src="imagens/iphone1.png" class="img-fluid d-none d-md-block arruma-cel-foto">
                 </div>
                  <div class="col-md-6">
-                  <img src="imagens/iphone2.png" class="img-fluid d-none d-md-block">
+                  <img src="imagens/iphone2.png" class="img-fluid d-none d-md-block arruma-cel-foto">
                 </div>
               </div>
             </div>
@@ -271,15 +279,17 @@
                             
                         </div>
                           <div class="form-group container">
-                              <input type="password" class="form-control" id="Password1" placeholder="Digite sua senha">
+                              <input type="password" class="form-control" id="senha1" placeholder="Digite sua senha">
                           </div>
                           <div class="form-group container" style="margin-left: 172px">
-                        <button type="submit" class="btn btn-primary">Entrar</button>
+                          
                         </div>
-                </form>
 
+                </form>
+                
 
               </div>
+              <button id="entrar" onclick="mostraNome()" class="btn btn-primary">Entrar</button>
                       <!-- 
                       <div class="modal-footer">
                         <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">
@@ -293,14 +303,13 @@
                   </div>
                 </div>
 
-
             </div>
 
     <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-2">
-            <img src="imagens/spotify.svg" width="142">
+            <img src="imagens/spotify.svg" width="142" class="logo-spot-arruma">
           </div>
           <div class="col-md-2">
            <h4> COMPANY </h4>
@@ -347,7 +356,82 @@
     </footer>
 
 
-    
+    <form hidden="hidden" method="get" action="." id="formulario_resgata">
+                  <h3>Cadastre-se abaixo</h3>
+                    <div class="form-row">
+                      <div class="form-group col-md-12">
+                        <label>Nome de usuário</label>
+                        <input type="text" class="form-control" id="nome-usuario" placeholder="exemplo diego@spotify">
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        
+                        <label id="#mostra-email" for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" aria-describedby="emailHelp">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Senha</label>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Repita a senha</label>
+                        <input id="confere_senha" type="password" class="form-control" placeholder="Digite novamente a sua senha">
+                      </div>
+                      
+                    </div>
+                    <!-- VALIDA CEP !-->
+                    <label>Cep:
+                            <input placeholder="cep" class="form-control" name="cep" type="text" id="cep"
+                            value="" size="10" maxlength="9"
+                            onblur="pesquisacep(this.value);" />
+                    </label>
+                          <br/>
+
+                      <label>Rua:
+                            <input placeholder="rua" class="form-control" name="rua" type="text" id="rua" size="60" />
+                      </label>
+                          <br/>
+
+                        <label>Bairro:
+                            <input placeholder="bairro" class="form-control" name="bairro"
+                            type="text" id="bairro" size="40"/>
+                        </label>
+                        <br/>
+
+                          <label>Cidade:
+                            <input placeholder="cidade" class="form-control" name="cidade" type="text" id="cidade" size="40" />
+                          </label>
+                        <br/>
+
+                            <label>Estado:
+                              <input placeholder="uf" class="form-control" name="uf" type="text" id="uf" size="2"/>
+                            </label>
+                        <br/>
+
+                            <label hidden>IBGE:
+                            <input class="form-control" name="ibge" type="text" id="ibge" size="8" /></label><br />
+                            
+                    <h3>Informe seu sexo</h3>
+                    <div class="form-check mt-3">
+                      <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="opcao1" checked>
+                      <label class="form-check-label" for="Radios1">
+                        Masculino
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="opcao2">
+                      <label class="form-check-label" for="Radios2">
+                        Feminino
+                      </label>
+                  </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="Radios" id="Radios3" value="opcao3">
+                          <label class="form-check-label" for="Radios3">
+                            Não informar
+                          </label>
+                      </div>
+
+                  </form>
     
 
     <!-- JavaScript (Opcional) -->

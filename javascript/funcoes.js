@@ -86,6 +86,14 @@ function limpa_formulário_cep() {
         var senha = document.getElementById('inputPassword4').value
         var senha1 = document.getElementById('confere_senha').value
         var email = document.getElementById('inputEmail4').value
+        //armazenei os dados em um array
+        var dados = Array()
+        dados[0] = nome_usuario
+        dados[1] = senha
+        dados[2] = senha1
+        dados[3] = email
+       document.cookie = dados
+        
         if(nome_usuario === '' || senha === '') {
             alert('Por favor, digite um nome de usuário e/ou senha')
 
@@ -109,8 +117,8 @@ function limpa_formulário_cep() {
 
 
         }
-        console.log(user_name)
-
+        //console.log(user_name)
+        console.log(dados)
     }
 
     function mostraNome() {
@@ -119,12 +127,17 @@ function limpa_formulário_cep() {
         var email_modal = document.getElementById('email-login').value
         var senha_modal = document.getElementById('senha1').value
         var login_modal = document.getElementById('nome-usuario').value
+        var login_usuario = document.getElementById('nome-usuario').value
+        login_usuario = login_usuario.trim()
+        //abaixo eu sobrescrevi o elemento com o id a1 pelo valor da variavel login_usuario
+        document.getElementById("a1").innerHTML = '<i class="fas fa-sign-out-alt">'+login_usuario+'<i/>'
         if(email === email_modal && senha === senha_modal && email_modal != '' && senha_modal != '') {
             alert('seja bem-vindo ' + login_modal)
            document.getElementById('usuario_nome').value = login_modal
            document.getElementById('email-login').hidden = true
            document.getElementById('senha1').hidden = true
            document.getElementById('entrar').hidden = true
+           document.getElementById('usuario_menu_login').hidden = false
 
         }else {
             alert('e-mail e/ou senha inválidos')
@@ -132,5 +145,14 @@ function limpa_formulário_cep() {
 
 
         console.log(email_modal)
+        console.log(login_usuario)
         
+    }
+
+
+   function divPlanos() {
+    //tentar usar a variavel de login como validação 
+        if(document.getElementById('usuario_menu_login').hidden = true) {
+            alert('Entre para escolher um plano')
+        }
     }
