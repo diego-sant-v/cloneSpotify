@@ -66,9 +66,59 @@ function limpa_formulário_cep() {
         }
     };
 
-    //funcoes para o preview da foto
+//funcoes para o preview da foto
+     //funções para o upload de fotos
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imageResult')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(function () {
+        $('#upload').on('change', function () {
+            readURL(input);
+        });
+    });
+
+    /*  ==========================================
+        SHOW UPLOADED IMAGE NAME
+    * ========================================== */
+    var input = document.getElementById( 'upload' );
+    var infoArea = document.getElementById( 'upload-label' );
+
+    input.addEventListener( 'change', showFileName );
+    function showFileName( event ) {
+      var input = event.srcElement;
+      var fileName = input.files[0].name;
+      infoArea.textContent = 'File name: ' + fileName;
+    }
     
 //fim das funções de preview da foto
+
+    function salvaImg() {
+        var imagem = document.getElementById('imageResult').src
+        
+
+        var salvar = document.getElementById('btn-salvar').value
+        var apagar = document.getElementById('btn-apagar').value
+
+        if(apagar === true) {
+            document.getElementById('imageResult').src = ''
+        }
+
+        if(salvar === true && imagem != '') {
+             alert('Imagem salva com sucesso')
+        }else {
+            alert('imagem não carregada')
+        }
+        console.log(imagem)
+    }
 
    
     function resgataDadosForm() {
